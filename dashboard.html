@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | الكيمياء الحيوية</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+      <!-- Bootstrap RTL CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+      <!-- Font Awesome for icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <!-- Google Fonts - Cairo for Arabic -->
+      <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="./css/ai-assistant.css">
+    <style>
+      
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-flask me-2"></i>الكيمياء الحيوية
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/dashboard"><i class="fas fa-home me-1"></i>الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chemistry.html"><i class="fas fa-flask me-1"></i>المختبر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/periodic-table.html"><i class="fas fa-table me-1"></i>الجدول الدوري</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ai-assistant.html"><i class="fas fa-robot me-1"></i>CHAT</a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown user-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="user-avatar" id="userAvatar">أ</div>
+                            <span id="username">المستخدم</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#profile"><i class="fas fa-user me-2"></i>الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="#settings"><i class="fas fa-cog me-2"></i>الإعدادات</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container dashboard-container">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <h2><i class="fas fa-hand-sparkles me-2"></i>مرحباً بك، <span id="welcomeUsername">المستخدم</span>!</h2>
+            <p>مرحباً بعودتك إلى منصة الكيمياء الحيوية التفاعلية. استكشف التجارب المتاحة وتابع تقدمك.</p>
+        </div>
+        
+        <!-- Stats Cards -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="icon"><i class="fas fa-flask"></i></div>
+                <h3 id="experimentsCount">0</h3>
+                <p>تجارب متاحة</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="icon"><i class="fas fa-check-circle"></i></div>
+                <h3 id="completedCount">0</h3>
+                <p>تجارب مكتملة</p>
+                <div class="progress">
+                    <div class="progress-bar bg-success" id="completionProgress" role="progressbar" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="icon"><i class="fas fa-award"></i></div>
+                <h3 id="averageScore">0</h3>
+                <p>متوسط النتائج</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="icon"><i class="fas fa-clock"></i></div>
+                <h3 id="lastLogin">-</h3>
+                <p>آخر تسجيل دخول</p>
+            </div>
+        </div>
+         <!-- Navigation Shortcuts -->
+         <h3 class="mt-5 mb-4"><i class="fas fa-compass me-2"></i>روابط سريعة</h3>
+        
+         <div class="row mb-5">
+             <div class="col-md-4 mb-3">
+                 <div class="card h-100 navigation-card">
+                     <div class="card-body text-center">
+                         <i class="fas fa-flask fa-3x mb-3" style="color: var(--secondary-color)"></i>
+                         <h4>مختبر الكيمياء</h4>
+                         <p>قم بإجراء تجارب كيميائية تفاعلية في بيئة آمنة وتعليمية</p>
+                         <a href="/chemistry.html" class="btn btn-primary">الذهاب إلى المختبر</a>
+                     </div>
+                 </div>
+             </div>
+             
+             <div class="col-md-4 mb-3">
+                 <div class="card h-100 navigation-card">
+                     <div class="card-body text-center">
+                         <i class="fas fa-table fa-3x mb-3" style="color: var(--warning-color)"></i>
+                         <h4>الجدول الدوري</h4>
+                         <p>استكشف الجدول الدوري التفاعلي للعناصر مع معلومات تفصيلية</p>
+                         <a href="/periodic-table.html" class="btn btn-warning">عرض الجدول الدوري</a>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-4 mb-4">
+                 <div class="card h-100">
+                     <div class="card-header">
+                         <h5 class="mb-0"><i class="fas fa-robot me-2"></i>CHAT</h5>
+                     </div>
+                     <div class="card-body text-center">
+                         <div class="lab-icon mb-3">
+                             <i class="fas fa-brain"></i>
+                         </div>
+                         <h5 class="card-title">مساعد الكيمياء الحيوية</h5>
+                         <p class="card-text">استخدم مساعدنا الذكي المدعوم بالذكاء الاصطناعي للحصول على إجابات لأسئلتك عن الكيمياء الحيوية</p>
+                         <a href="ai-assistant.html" class="btn btn-primary mt-2" id="aiAssistantBtn">استخدم CHAT</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+        <!-- Experiments Section -->
+        <h3 class="mt-5 mb-4"><i class="fas fa-flask me-2"></i>تجارب الكيمياء الحيوية</h3>
+        
+        <div class="row" id="experimentsContainer">
+            <!-- Experiments will be loaded here dynamically -->
+            <div class="col-12 text-center py-5">
+                <div class="spinner"></div>
+                <p>جاري تحميل التجارب...</p>
+            </div>
+        </div>
+        
+       
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">الرئيسية</a>
+                    <a href="#features">المميزات</a>
+                    <a href="#about">عن الموقع</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">&copy; 2025 الكيمياء الحيوية. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a> | 
+                        <a href="#" class="text-white text-decoration-none">شروط الاستخدام</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/auth.js"></script>
+    <script>
+        // Variables for user data
+        let userData = null;
+        let userProgress = [];
+        let experiments = [];
+        
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in
+            checkLoginStatus();
+            
+            // Load experiments
+            loadExperiments();
+            
+            // Setup event listeners
+            
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+        });
+        
+        // Check login status
+        function checkLoginStatus() {
+            fetch('/api/user')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Not authenticated');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        userData = data.user;
+                        updateUserInterface();
+                        loadUserProgress();
+                    } else {
+                        // Redirect to login page if not authenticated
+                        window.location.href = '/login';
+                    }
+                })
+                .catch(error => {
+                    console.error('Authentication error:', error);
+                    window.location.href = '/login';
+                });
+        }
+        
+        // Update user interface with user data
+        function updateUserInterface() {
+            if (userData) {
+                // Update user name displays
+                document.getElementById('username').textContent = userData.username;
+                document.getElementById('welcomeUsername').textContent = userData.fullname;
+                
+                // Set user avatar with first letter of fullname
+                const firstLetter = userData.fullname.charAt(0);
+                document.getElementById('userAvatar').textContent = firstLetter;
+                
+                // Format date for last login display
+                const now = new Date();
+                document.getElementById('lastLogin').textContent = now.toLocaleDateString('ar-SA');
+            }
+        }
+        
+        // Load experiments from API
+        function loadExperiments() {
+            fetch('/api/experiments')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        experiments = data.experiments;
+                        document.getElementById('experimentsCount').textContent = experiments.length;
+                        updateExperimentsUI();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading experiments:', error);
+                    document.getElementById('experimentsContainer').innerHTML = '<div class="col-12"><div class="alert alert-danger">حدث خطأ أثناء تحميل التجارب. يرجى المحاولة مرة أخرى لاحقاً.</div></div>';
+                });
+        }
+        
+        // Load user progress from API
+        function loadUserProgress() {
+            fetch('/api/user/progress')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        userProgress = data.progress;
+                        updateProgressStats();
+                        updateExperimentsUI(); // Update experiment cards with progress info
+                    }
+                })
+                .catch(error => console.error('Error loading user progress:', error));
+        }
+        
+        // Update progress statistics
+        function updateProgressStats() {
+            // Count completed experiments
+            const completedExperiments = userProgress.filter(item => item.status === 'completed');
+            document.getElementById('completedCount').textContent = completedExperiments.length;
+            
+            // Calculate completion percentage
+            const completionPercentage = experiments.length > 0 
+                ? Math.round((completedExperiments.length / experiments.length) * 100) 
+                : 0;
+            document.getElementById('completionProgress').style.width = completionPercentage + '%';
+            
+            // Calculate average score
+            const scores = completedExperiments.map(item => item.score).filter(score => score !== null);
+            const averageScore = scores.length > 0 
+                ? Math.round(scores.reduce((acc, curr) => acc + curr, 0) / scores.length) 
+                : 0;
+            document.getElementById('averageScore').textContent = averageScore;
+        }
+        
+        // Update experiments UI
+        function updateExperimentsUI() {
+            const container = document.getElementById('experimentsContainer');
+            
+            if (experiments.length === 0) {
+                container.innerHTML = '<div class="col-12"><div class="alert alert-info">لا توجد تجارب متاحة حالياً.</div></div>';
+                return;
+            }
+            
+            let html = '';
+            
+            experiments.forEach(experiment => {
+                // Find user progress for this experiment
+                const progress = userProgress.find(p => p.id === experiment.id) || { status: 'not_started', score: null };
+                
+                // Determine status classes and text
+                let statusClass = 'not-started';
+                let statusText = 'لم تبدأ بعد';
+                
+                if (progress.status === 'in_progress') {
+                    statusClass = 'in-progress';
+                    statusText = 'قيد التنفيذ';
+                } else if (progress.status === 'completed') {
+                    statusClass = 'completed';
+                    statusText = 'مكتملة';
+                }
+                
+                // Determine difficulty class and text
+                let difficultyClass = '';
+                let difficultyText = '';
+                
+                switch (experiment.difficulty) {
+                    case 'easy':
+                        difficultyClass = 'easy';
+                        difficultyText = 'سهل';
+                        break;
+                    case 'medium':
+                        difficultyClass = 'medium';
+                        difficultyText = 'متوسط';
+                        break;
+                    case 'hard':
+                        difficultyClass = 'hard';
+                        difficultyText = 'صعب';
+                        break;
+                }
+                
+                html += `
+                <div class="col-md-6 col-lg-4">
+                    <div class="experiment-card">
+                        <div class="position-relative">
+                            <img src="${experiment.image_url || 'https://via.placeholder.com/300x180?text=تجربة+كيميائية'}" alt="${experiment.title}" class="card-img-top">
+                            <span class="difficulty ${difficultyClass}">${difficultyText}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="category">${experiment.category}</div>
+                            <h5 class="title">${experiment.title}</h5>
+                            <p class="description">${experiment.description.substring(0, 100)}${experiment.description.length > 100 ? '...' : ''}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="status ${statusClass}">${statusText}</span>
+                                <a href="chemistry.html#"${experiment.id}" class="btn btn-sm btn-primary">بدء التجربة</a>
+                            </div>
+                            ${progress.score !== null ? `<div class="mt-2">النتيجة: <strong>${progress.score}%</strong></div>` : ''}
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+
+        
+        // Logout function
+        function logout() {
+            fetch('/api/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/';
+                }
+            })
+            .catch(error => console.error('Logout error:', error));
+        }
+    </script>
+    
+</body>
+</html>

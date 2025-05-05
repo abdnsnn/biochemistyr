@@ -1,0 +1,606 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script></script>
+	<!-- Enable IE9 Standards mode -->
+	<meta http-equiv="X-UA-Compatible" content="IE=9">
+	
+	<title></title>
+	<link rel="stylesheet" type="text/css" media="all" href="./css/font.css">
+	<link rel="stylesheet" type="text/css" media="all" href="./css/reset.css">
+	<link rel="stylesheet" type="text/css" media="all" href="./css/grid.css">
+	<link href="./css/mainstyle.css" rel="stylesheet" type="text/css">
+	<link href="./css/nanoscroller.css" rel="stylesheet" type="text/css">
+	<script src="./js/overthrow.min.js"></script>
+
+	<!-- تضمين Font Awesome للأيقونات -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	
+	<link href="./css/trip.css" rel="stylesheet" type="text/css">
+	<script language="javascript">
+	var language_script= 'en-IN';
+	var language=language_script.toString();
+		language=language.slice(0, 2);
+		gt.gettext.setLocale(language);
+	</script>
+	<script type="text/javascript" src="./js/language.json"></script>
+	<!-- Ensure that Gettext library is loaded properly 
+	<script>
+	  if (typeof gt === 'undefined') {
+		window.gt = {};
+		gt.gettext = {
+		  setLocale: function(lang) { console.log('Setting locale to: ' + lang); },
+		  gettext: function(text) { return text; }
+		};
+	  }
+	</script> -->
+	<script type="text/javascript" src="./js/Gettext.js"></script>
+	<!--[if gte IE 9]>
+	  <style type="text/css">
+		.gradient {
+		   filter: none;
+		}
+	  </style>
+	<![endif]-->
+	<script src="./js/modernizr-custom.js"></script>
+	<script> 
+	if( !Modernizr.inputtypes.range ){  
+			document.write("<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/webshim/1.15.10/minified/polyfiller.js\"><"+"/script>");
+			$(document).ready(function(){
+				$.webshims.setOptions("waitReady", false);
+				 $.webshims.polyfill('forms-ext');
+			});  
+		};  
+	
+	
+	</script>
+	
+	</head>
+	<body style="cursor: auto;">
+	<div class="main">
+	<header id="silumatorTemp">
+	  <div class="g99 logo">
+	  </div>
+	  <!-- end .g99 -->
+		<div class="g495 mainTitle">
+		<p id="expName">Qualitative Analysis of Carbohydrates</p>
+	  </div>
+	  <!-- end .g495 -->
+		<div class="g198 menuSet">
+			  
+	  </div>
+	  <!-- end .g198 -->
+	<div class="g792 bannerFoot">
+	<ul id="olabmenuBar">
+		  <li><a href="#">HELP</a></li>
+		<li><a id="olabFullscrBtn" onclick="parent.simFullScreenOlab()" style="cursor:pointer;">FULLSCREEN</a></li>
+		<li><a href="#">EXIT</a></li>
+	  </ul>
+	</div>
+		<!-- end .grid_8 -->
+	</header><!-- /header -->
+	<div class="g594 canvasHolder"> 
+		<div id="canvasBox">
+	<script type="text/javascript" language="javascript">
+		var simPath="./";
+	</script>
+	<div id="mainDiv">
+		<img id="bg" src="./images/BG.png">
+		<img id="Inference" src="./images/Inference.png">
+		<img id="drop" class="drop" src="./images/drop.png">  
+		<img id="drop_1" class="drop" src="./images/drop.png">
+		<div id="dropAreaTube_1" class="dropAreaTubes ui-droppable" style="display: block;"></div>
+		<div id="dropAreaTube_2" class="dropAreaTubes"></div>
+		<div id="dropAreaTube_3" class="dropAreaTubes"></div>
+		<div id="dropAreaTube_4" class="dropAreaTubes"></div>
+		
+		<div id="Solubility_molischsArea" style="">
+			<div id="testTubeDropArea" style="position:relative; display: block;"></div>
+			
+			<div id="testTube_1" class="testTubes">
+				<img id="glucose" class="cabohydrate" src="./images/carbohydrates.png" style="display: inline; opacity: 1;">
+				<div id="glucoseSolution" class="tubeSolutions" style="height: 0px; top: 160px; opacity: 0.2;"></div>
+				<div class="solutionFlow"></div>
+				<img id="redVioletRing" class="redVioletRing" src="./images/redVioletRing.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Ring'">
+				<img id="molisch" class="molisch" src="./images/molisch.png">
+				<div id="triangleMask" class="triangleMask"></div>
+				<img class="tTubeImg" src="./images/testl.png">
+				<p class="tLabels">A</p>
+			</div>
+			
+			<div id="testTube_2" class="testTubes">
+				<img id="lactose" class="cabohydrate" src="./images/carbohydrates.png" style="display: inline; opacity: 1;">
+				<div id="lactoseSolution" class="tubeSolutions" style="height: 0px; top: 160px; opacity: 0.2;"></div>
+				<div class="solutionFlow"></div>
+				<img id="redVioletRing" class="redVioletRing" src="./images/redVioletRing.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Ring'">
+				<img id="molisch" class="molisch" src="./images/molisch.png">
+				<div id="triangleMask" class="triangleMask"></div>
+				<img class="tTubeImg" src="./images/testl.png">
+				<p class="tLabels">B</p>
+			</div>
+			
+			<div id="testTube_3" class="testTubes">
+				<img id="sucrose" class="cabohydrate" src="./images/carbohydrates.png" style="display: inline; opacity: 1;">
+				<div id="sucroseSolution" class="tubeSolutions" style="height: 0px; top: 160px; opacity: 0.2;"></div>
+				<div class="solutionFlow"></div>
+				<img id="redVioletRing" class="redVioletRing" src="./images/redVioletRing.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Ring'">
+				<img id="molisch" class="molisch" src="./images/molisch.png">
+				<div id="triangleMask" class="triangleMask"></div>
+				<img class="tTubeImg" src="./images/testl.png">
+				<p class="tLabels">C</p>
+			</div>
+			
+			<div id="testTube_4" class="testTubes">
+				<img id="starch" class="cabohydrate" src="./images/carbohydrates.png" style="display: inline; opacity: 1;">
+				<div id="starchSolution" class="tubeSolutions" style="height: 0px; top: 160px; opacity: 0.2;"></div>
+				<div class="solutionFlow"></div>
+				<img id="redVioletRing" class="redVioletRing" src="./images/redVioletRing.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Ring'">
+				<img id="molisch" class="molisch" src="./images/molisch.png">
+				<div id="triangleMask" class="triangleMask"></div>
+				<img class="tTubeImg" src="./images/testl.png">
+				<p class="tLabels">D</p>
+			</div>
+			
+			<!--Apparatus for Solubility test-->
+			<div id="solubilityWrap" style="">
+				<div id="dropperWraper" class="ui-draggable" aria-disabled="false" style="left: 442px; top: 120px; z-index: 0;">
+					<div id="droperSolution"></div>
+					<img id="droper" src="./images/dropper.png">	
+				</div>
+				<div id="water" style="border-radius: 20px 20px 7px 7px; height: 95px; top: 207px;"></div>
+				<img id="bottleShadow" src="./images/bottleShadow.png">
+				<img id="bottle" src="./images/bottle.png">
+				<p id="bottleTxt" class="labelTxt">Water</p>
+			</div>
+			<!--Apparatus for Molisch's test-->
+			<div id="molischWrap" style="display:none;">
+				<div id="molisch_dropperWraper">
+					<div id="molisch_droperSolution"></div>
+					<img id="molisch_droper" src="./images/dropper.png">	
+				</div>
+				<div id="molischReagent" class="bottleSolution"></div>
+				<img id="molisch_bottleShadow" src="./images/bottleShadow.png">
+				<img id="molisch_bottle" src="./images/bottle.png">
+				<p id="molisch_bottleTxt" class="labelTxt"></p>
+				<div id="molisch_dropperWraper_1">
+					<div id="molisch_droperSolution_1"></div>
+					<img id="molisch_droper_1" src="./images/dropper.png">	
+				</div>
+				<div id="molischH2SO4" class="bottleSolution"></div>
+				<img id="molisch_bottleShadow_1" src="./images/bottleShadow.png">
+				<img id="molisch_bottle_1" src="./images/bottle.png">
+				<p id="molisch_bottleTxt_1" class="labelTxt"></p>
+				<div id="molischH2SO4Drop"></div>
+				<div id="tempBG"></div>
+			</div>
+		</div>
+		<div id="fehlingsWrapArea" style="display:none;">
+		<div id="fehlings_dropAreaTube_1" class="dropAreaTubes"></div>
+		<div id="fehlings_testTube_1" class="testTubes">
+			<div id="fehlings_glucose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">A</p>
+		</div>
+		<div id="fehlings_dropAreaTube_2" class="dropAreaTubes"></div>
+		<div id="fehlings_testTube_2" class="testTubes">
+			<div id="fehlings_lactose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">B</p>
+		</div>
+		<div id="fehlings_dropAreaTube_3" class="dropAreaTubes"></div>
+		<div id="fehlings_testTube_3" class="testTubes">
+			<div id="fehlings_sucrose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">C</p>
+		</div>
+		<div id="fehlings_dropAreaTube_4" class="dropAreaTubes"></div>
+		<div id="fehlings_testTube_4" class="testTubes">
+			<div id="fehlings_starch" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">D</p>
+		</div>
+		<!-- Bottles and droppers -->
+		
+		<div id="fehlings_dropperWraper" class="dropperWraper_1">
+			<div id="fehlings_droperSolution" class="droperSolution"></div>
+			<img id="molisch_droper" src="./images/dropper.png">	
+		</div>
+		<div id="fehlingsA" class="bottleSolution"></div>
+		<img id="molisch_bottleShadow" src="./images/bottleShadow.png">
+		<img id="molisch_bottle" src="./images/bottle.png">
+		<p id="fehlingsA_bottleTxt" class="labelTxt bottleTxt_1"></p>
+		<div id="fehlings_dropperWraper_1" class="dropperWraper_2">
+			<div id="fehlings_droperSolution_1" class="droperSolution"></div>
+			<img id="molisch_droper_1" src="./images/dropper.png">	
+		</div>
+		<div id="fehlingsB" class="bottleSolution"></div>
+		<img id="molisch_bottleShadow_1" src="./images/bottleShadow.png">
+		<img id="molisch_bottle_1" src="./images/bottle.png">
+		<p id="fehlingsB_bottleTxt" class="labelTxt bottleTxt_2"></p>
+		<div id="molischH2SO4Drop"></div>
+		<div id="tempBG"></div>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div id="secondSceneWrapArea" style="display:none;">
+		<img id="hotPlate" src="./images/machineZoom.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100?text=HotPlate'">
+		<div id="secondScene_testTube_1" class="testTube_1">
+			<div id="secondScene_glucose" class="tubeSolutions_1"></div>
+			<img id="silverMirror" class="silverMirror" src="./images/silverMirror.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Mirror'">
+			<img class="tTubeImg" src="./images/testtubeZoom.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Tube'">
+			<p class="tLabelsZoom">A</p>
+		</div>
+		<div id="secondScene_testTube_2" class="testTube_2">
+			<div id="secondScene_lactose" class="tubeSolutions_1"></div>
+			<img id="silverMirror" class="silverMirror" src="./images/silverMirror.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Mirror'">
+			<img id="morroe_2" class="silverImg" src="./images/silverMirror.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Mirror'">
+			<img class="tTubeImg" src="./images/testtubeZoom.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Tube'">
+			<p class="tLabelsZoom">B</p>
+		</div>
+		<div id="secondScene_testTube_3" class="testTube_3">
+			<div id="secondScene_sucrose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testtubeZoom.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Tube'">
+			<p class="tLabelsZoom">C</p>
+		</div>
+		<div id="secondScene_testTube_4" class="testTube_4">
+			<div id="secondScene_starch" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testtubeZoom.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50?text=Tube'">
+			<p class="tLabelsZoom">D</p>
+		</div>
+		<div id="dragDisable"></div>
+		<!-- Water  bath  -->
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div id="benedictsWrapArea" style="display:none;">
+		<div id="benedicts_dropAreaTube_1" class="dropAreaTubes"></div>
+		<div id="benedicts_testTube_1" class="testTubes">
+			<div id="benedicts_glucose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">A</p>
+		</div>
+		<div id="benedicts_dropAreaTube_2" class="dropAreaTubes"></div>
+		<div id="benedicts_testTube_2" class="testTubes">
+			<div id="benedicts_lactose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">B</p>
+		</div>
+		<div id="benedicts_dropAreaTube_3" class="dropAreaTubes"></div>
+		<div id="benedicts_testTube_3" class="testTubes">
+			<div id="benedicts_sucrose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">C</p>
+		</div>
+		<div id="benedicts_dropAreaTube_4" class="dropAreaTubes"></div>
+		<div id="benedicts_testTube_4" class="testTubes">
+			<div id="benedicts_starch" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">D</p>
+		</div>
+		<!-- Bottles and droppers -->
+		
+		<div id="benedicts_dropperWraper" class="dropperWraper">
+			<div id="benedicts_droperSolution" class="droperSolution"></div>
+			<img id="benedicts_droper" src="./images/dropper.png">	
+		</div>
+		<div id="benedictsSolu" class="bottleSolution"></div>
+		<img id="benedicts_bottleShadow" src="./images/bottleShadow.png">
+		<img class="benedicts_bottle" src="./images/bottle.png">
+		<p id="benedicts_bottleTxt" class="labelTxt bottleTxt"></p>
+	
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div id="tollensWrapArea" style="display:none;">
+		<div id="dropAreaTube_1" class="dropAreaTubes"></div>
+		<div id="testTube_1" class="testTubes">
+			<div id="tollens_glucose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">A</p>
+		</div>
+		<div id="dropAreaTube_2" class="dropAreaTubes"></div>
+		<div id="testTube_2" class="testTubes">
+			<div id="tollens_lactose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">B</p>
+		</div>
+		<div id="dropAreaTube_3" class="dropAreaTubes"></div>
+		<div id="testTube_3" class="testTubes">
+			<div id="tollens_sucrose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">C</p>
+		</div>
+		<div id="dropAreaTube_4" class="dropAreaTubes"></div>
+		<div id="testTube_4" class="testTubes">
+			<div id="tollens_starch" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">D</p>
+		</div>
+		<!-- Bottles and droppers -->
+		
+		<div id="tollens_dropperWraper" class="dropperWraper">
+			<div id="tollens_droperSolution" class="droperSolution"></div>
+			<img id="molisch_droper" src="./images/dropper.png">	
+		</div>
+		<div id="tollensSolu" class="bottleSolution"></div>
+		<img id="benedicts_bottleShadow" src="./images/bottleShadow.png">
+		<img class="benedicts_bottle" src="./images/brownBottle.png">
+		<p id="tollens_bottleTxt" class="labelTxt bottleTxt"></p>
+	
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div id="iodineWrapArea" style="display:none;">
+		<div id="dropAreaTube_1" class="dropAreaTubes"></div>
+		<div id="testTube_1" class="testTubes">
+			<div id="iodine_glucose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">A</p>
+		</div>
+		<div id="dropAreaTube_2" class="dropAreaTubes"></div>
+		<div id="testTube_2" class="testTubes">
+			<div id="iodine_lactose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">B</p>
+		</div>
+		<div id="dropAreaTube_3" class="dropAreaTubes"></div>
+		<div id="testTube_3" class="testTubes">
+			<div id="iodine_sucrose" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">C</p>
+		</div>
+		<div id="dropAreaTube_4" class="dropAreaTubes"></div>
+		<div id="testTube_4" class="testTubes">
+			<div id="iodine_starch" class="tubeSolutions_1"></div>
+			<img class="tTubeImg" src="./images/testl.png">
+			<p class="tLabels">D</p>
+		</div>
+		<!-- Bottles and droppers -->
+		
+		<div id="iodine_dropperWraper" class="dropperWraper">
+			<div id="iodine_droperSolution" class="droperSolution"></div>
+			<img id="molisch_droper" src="./images/dropper.png">	
+		</div>
+		<div id="tollensSolu" class="bottleSolution"></div>
+		<img id="benedicts_bottleShadow" src="./images/bottleShadow.png">
+		<img class="benedicts_bottle" src="./images/brownBottle.png">
+		<p id="iodine_bottleTxt" class="labelTxt bottleTxt"></p>
+	
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+		<div id="nextButton" onclick="secondScene()" style="display: none;">
+			<p id="nextBtnLb">Place test tubes in waterbath</p>
+			<img id="nextbtn" src="./images/nextbtn.png">
+		</div>
+		<img id="testtubeStand" src="./images/stand.png">
+		<img id="labelImg_1" src="./images/label.png">
+		<p id="glucoseTxt" class="labelTxt">Glucose</p>
+		<img id="labelImg_2" src="./images/label.png">
+		<p id="lactoseTxt" class="labelTxt">Lactose</p>
+		<img id="labelImg_3" src="./images/label.png">
+		<p id="sucroseTxt" class="labelTxt">Sucrose</p>
+		<img id="labelImg_4" src="./images/label.png">
+		<p id="starchTxt" class="labelTxt">Starch</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	</div>
+	</div>
+	<div class="g198 controlHolder" style="background-color: #264653;" id="g198">
+	<ul>
+		<li>
+			<div class="varBox" style="height:250px;background-color: #264653;">
+				<p class="varTitle">
+					<span id="DropboxTestLbl">Select the test:</span>
+					<select class="dropBox" id="DropboxTest" onchange="changeTest(this.value); updateAIEvaluation(this.value);">
+						<option value="0">Solubility test</option>
+						<option value="1">Molisch's test</option>
+						<option value="4">Tollen's test</option>
+						<option value="5">Iodine test</option></select>
+				</p>
+			  </div>
+			
+
+			<br>
+			<p align="center">
+				<input type="button" class="subButton" id="reset" onclick="window.location.reload();" value="Reset">
+			</p>
+		</li>	
+	</ul>
+	</div>
+	<script type="text/javascript">
+	 var expTitle="Qualitative Analysis of Carbohydrates";
+	 document.getElementById("expName").innerHTML=expTitle;
+	</script>   <footer id="tempFooter">
+	 
+	  <!-- end .g396 -->
+	  <div class="g396 footer">
+		<p class="copyName"></p>
+	  </div>
+		<div class="clear"></div>
+		</footer> <!-- /footer -->
+	</div>
+	
+<script>
+	// تعديل منطقة الإسقاط وتحسين خاصيات الخلط
+	$(document).ready(function() {
+		console.log("تطبيق حل مباشر للخلط");
+		
+		// 1. تحسين منطقة الإسقاط
+		$("#testTubeDropArea").css({
+			"position": "absolute",
+			"width": "150px",
+			"height": "150px",
+			"left": "320px",
+			"top": "0px",
+			"z-index": "100"
+		});
+		
+		// 2. تعريف دالة مباشرة للخلط
+		window.shakeTheTube = function(tubeId) {
+			console.log("تنفيذ خلط مباشر للأنبوبة:", tubeId);
+			var tube = $("#" + tubeId);
+			
+			if (tube.length === 0) {
+				console.error("لم يتم العثور على الأنبوبة:", tubeId);
+				tube = $(".testTubes:first"); // استخدم أول أنبوبة موجودة للاختبار
+				console.log("استخدام أنبوبة بديلة:", tube.attr('id'));
+			}
+			
+			// تحريك الأنبوبة إلى منطقة الخلط
+			tube.css({
+				"position": "absolute",
+				"top": "16px",
+				"left": "365px",
+				"z-index": "200"
+			});
+			
+			// متغيرات الخلط
+			var angle = 0;
+			var turningRight = true;
+			var animTimer;
+			
+			function doShake() {
+				tube.css({
+					'-ms-transform': 'rotate('+angle+'deg)',
+					'-webkit-transform': 'rotate('+angle+'deg)',
+					'transform': 'rotate('+angle+'deg)'
+				});
+				
+				if (turningRight) {
+					angle++;
+				} else {
+					angle--;
+				}
+				
+				if (angle == 10) {
+					turningRight = false;
+				}
+				if (angle == -10) {
+					turningRight = true;
+				}
+				
+				animTimer = setTimeout(doShake, 10);
+			}
+			
+			// بدء الخلط
+			doShake();
+			
+			// إيقاف الخلط بعد 4 ثوانٍ
+			setTimeout(function() {
+				clearTimeout(animTimer);
+				tube.css({
+					'-ms-transform': 'rotate(0deg)',
+					'-webkit-transform': 'rotate(0deg)',
+					'transform': 'rotate(0deg)'
+				});
+				
+				// إعادة الأنبوبة إلى موقعها الأصلي
+				setTimeout(function() {
+					var originalPosition = tubeId === "testTube_1" ? "63px" : 
+										  (tubeId === "testTube_2" ? "130px" : 
+										  (tubeId === "testTube_3" ? "198px" : "264px"));
+					
+					tube.animate({
+						left: originalPosition,
+						top: "126px"
+					}, 1000);
+				}, 500);
+			}, 4000);
+		};
+		  
+    // 3. ربط أحداث النقر على الأنابيب مباشرة (بدلاً من السحب والإفلات)
+    $(".testTubes").dblclick(function() {
+        var tubeId = $(this).attr('id');
+        console.log("نقر مزدوج على الأنبوبة:", tubeId);
+        shakeTheTube(tubeId);
+        
+        // إرسال إشعار إلى chemistry.html بأن الخلط قد تم
+        if (window.parent && window.parent.postMessage) {
+            var stepData = {
+                type: 'experimentStep',
+                experimentData: {
+                    action: 'mixTube',
+                    testType: 'Solubility test',
+                    details: {
+                        tubeId: tubeId
+                    }
+                }
+            };
+            console.log("إرسال إشعار الخلط إلى chemistry.html:", stepData);
+            window.parent.postMessage(stepData, '*');
+        }
+    });
+   } );
+	</script>
+		<!-- <script src="js/jquery/1.7/jquery-1.7.1.js"></script> -->
+		<script src="./js/jquery.js"></script>
+		<script src="./js/jquery-ui.js"></script>
+		<script src="./js/jquery.nanoscroller.js"></script>
+		<script type="text/javascript" src="./js/touchready.js"></script>
+		<script type="text/javascript" src="./js/main.js"></script>
+		<!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/excanvas/3.0/excanvas.compiled.js"></script><![endif]-->
+		<link href="./css/simstyle.css" rel="stylesheet" type="text/css">
+		<script language="javascript" type="text/javascript" src="./js/jquery-ui-1.10.2.custom.min.js"></script>
+		<script language="javascript" type="text/javascript" src="./js/jquery.i18n.js"></script>
+		<!--<script language="javascript" type="text/javascript" src="../CHE/ORG/Qualitative_Analysis_of_Carbohydrates/js/help_benedict.js"></script> 
+		-->
+		
+		<script type="text/javascript" src="./js/help_solubility.js"></script>
+		<script type="text/javascript" src="./js/help_molischs.js"></script>
+		<script type="text/javascript" src="./js/help_fehlings.js"></script>
+		<script type="text/javascript" src="./js/help_benedicts.js"></script>
+		<script type="text/javascript" src="./js/help_tollens.js"></script>
+		<script type="text/javascript" src="./js/help_iodine.js"></script>
+		<script type="text/javascript" src="./js/help_secondScene.js"></script>
+		<script type="text/javascript" src="./js/help_main.js"></script>
+		<script type="text/javascript" src="./js/ai_evaluation.js"></script>
+		
+		<script type="text/javascript" src="./js/simcontrols_main.js"></script>
+		<script type="text/javascript" src="./js/simcontrols_solubility.js"></script>
+		<script type="text/javascript" src="./js/simcontrols_molisch.js"></script>
+		<script type="text/javascript" src="./js/simcontrols_fehlings.js"></script>
+		<script type="text/javascript" src="./js/simcontrols_secondScene.js"></script>
+		<script type="text/javascript" src="./js/simcontrols_benedicts.js"></script>
+		<script type="text/javascript" src="./js/simcontrols_tollens.js"></script>
+		<script type="text/javascript" src="./js/simcontrols_iodine.js"></script>
+		
+		<script type="text/javascript" language="javascript" src="./js/touchconvert.js"></script>
+		<script language="javascript" type="text/javascript" src="./js/trip.min.js"></script>
+		
+	</body>
+	</html>

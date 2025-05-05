@@ -1,0 +1,656 @@
+.dropBox{
+	margin: 6px 0px 3px 17px !important;
+	width: 147px !important;
+}
+.space{
+	padding: 7px 0px 0px 0px;
+}
+.ctrlLabel{
+	position:absolute;
+	font-family: MRKGPEN;
+	font-size: 15px;
+	padding: 0px 0px 3px 0px;
+	cursor:context-menu;
+}
+.drop{
+	position:absolute;
+	top: 153px;
+	left: 295px;
+	display:none;
+}
+#Inference{
+	position:absolute;
+	left:10px;
+	top:10px;
+	display:none;
+	cursor:pointer;
+}
+#nextButton{
+	position:absolute;
+	left:413px;
+	top:12px;
+	cursor:pointer;
+	display:none;
+}
+.subButton {
+    width: 130px;
+	
+	}
+#nextBtnLb{
+	position:absolute;
+	font-family: MRKGPEN;
+	 font-size: 14px;
+	padding: 6px 0px 0px 4px;
+	cursor: pointer;
+	width: 115px;
+	text-align: center;
+}
+#testtubeStand{
+	position:absolute;
+	left:20px;
+	top:165px;
+}
+.tLabels{
+	position:absolute;
+	left:11px;
+	top:13px;
+	font-family: MRKGPEN;
+	font-size: 19px;
+	cursor:pointer;
+}
+.tLabelsZoom{
+	position: absolute;
+	left: 21px;
+	top: 23px;
+	font-family: MRKGPEN;
+	font-size: 25px;
+	cursor: pointer;
+}
+.tTubeImg{
+	position:absolute;
+}
+#testTube_1{
+	position:absolute;
+	left:63px;
+	top:126px;
+	cursor:pointer;
+	opacity:1;
+}
+.testTube_1{
+	position:absolute;
+	left:63px;
+	top:126px;
+	
+}
+#testTube_2{
+	position:absolute;
+	left:130px;
+	top:126px;
+	cursor:pointer;
+	opacity:1;
+}
+.testTube_2{
+	position:absolute;
+	left:130px;
+	top:126px;
+	
+}
+#testTube_3{
+	position:absolute;
+	left:198px;
+	top:126px;
+	cursor:pointer;
+	opacity:1;
+}
+.testTube_3{
+	position:absolute;
+	left:198px;
+	top:126px;
+	
+}
+#testTube_4{
+	position:absolute;
+	left:264px;
+	top:126px;
+	cursor:pointer;
+	opacity:1;
+}
+.testTube_4{
+	position:absolute;
+	left:264px;
+	top:126px;
+	
+}
+#secondScene_testTube_1{
+	left:186px;
+	top:-12px;
+}
+#secondScene_testTube_2{
+	left:238px;
+	top:-12px;
+}
+#secondScene_testTube_3{
+	left:289px;
+	top:-12px;
+}
+#secondScene_testTube_4{
+	left:341px;
+	top:-12px;
+}
+.tubeSolutions{
+	position:absolute;
+	left:2px;
+	top:160px;
+	width:27px;
+	height:0px;
+	border-radius:0px 0px 7px 7px;
+	background-color:#FFF;
+	opacity:0.2;
+	
+}
+.tubeSolutions_1{
+	position:absolute;
+	left:2px;
+	top:130px;
+	width:27px;
+	height:30px;
+	border-radius:0px 0px 19px 19px;
+	background-color:#FFF;
+	opacity:0.2;
+}
+.solutionFlow{
+	position:absolute;
+	left:25px;
+	top:7px;
+	width:2px;
+	height:0px;
+	background-color:#FFF;
+	opacity:0.4;
+}
+.redVioletRing{
+	position:absolute;
+	left:1px;
+	top:138px;
+	width:28px;
+	height:0px;
+}
+.molisch{
+	position:absolute;
+	left:1px;
+	top:138px;
+	width:28px;
+	height:0px;
+}
+#triangleMask {
+	position:absolute;
+	top:93px;
+	left:1px;
+	width: 0;
+	height: 0;
+	border-top: 0px solid #438667;
+	border-right: 28px solid transparent;
+}
+.dropAreaTubes{
+	position:absolute;
+	top:-5px;
+	width:50px;
+	height:70px;
+	display:none;
+}
+#dropAreaTube_1{
+	left:55px;
+}
+#dropAreaTube_2{
+	left:119px;
+}
+#dropAreaTube_3{
+	left:187px;
+}
+#dropAreaTube_4{
+	left:252px;
+}
+.cabohydrate{
+	position:absolute;
+	left:0px;
+	top:144px;
+	display:none;
+}
+.labelTxt{
+	position:absolute;
+	width:60px;
+	height:32px;
+	text-align:center;
+	font-size: 14px;
+	font-family:MRKGPEN;
+	cursor:context-menu;
+}
+#glucoseTxt{
+	left:31px;
+	top:293px;
+	padding-left:6px;
+}
+#lactoseTxt{
+	left:107px;
+	top:293px;
+	padding-left:6px;
+}
+#sucroseTxt{
+	left:183px;
+	top:293px;
+	padding-left:6px;
+}
+#starchTxt{
+	left:259px;
+	top:293px;
+	padding-left:6px;
+}
+#bottleTxt{
+	left:421px;
+	top:252px;
+}
+#labelImg_1{
+	position:absolute;
+	left:29px;
+	top:287px;
+}
+#labelImg_2{
+	position:absolute;
+	left:105px;
+	top:287px;
+}
+#labelImg_3{
+	position:absolute;
+	left:181px;
+	top:287px;
+}
+#labelImg_4{
+	position:absolute;
+	left:257px;
+	top:287px;
+}
+#testTubeDropArea{
+	position:absolute;
+	left:53px;
+	top:-5px;
+	width:500px;
+	height:200px;
+}
+#bottle{
+	position:absolute;
+	left:422px;
+	top:176px;
+}
+#bottleShadow{
+	position:absolute;
+	left:419px;
+	top:302px;
+}
+#water{
+	position:absolute;
+	left:423px;
+	top:207px;
+	width:57px;
+	height:95px;
+	border-radius:20px 20px 7px 7px;
+	border-style: solid;
+    border-top: 3px ridge rgba(255, 255, 255, 1);
+	background-color:#FFFFFF;
+	opacity:0.4;
+}
+#dropperWraper{
+	position:absolute;
+	left:442px;
+	top:120px;
+	cursor:pointer;
+	opacity:1;
+}
+#droper{
+	position:absolute;
+}
+#droperSolution{
+	position:absolute;
+	left:7px;
+	top:65px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 55px 4px 0 4px;
+	border-color: #ffffff transparent transparent transparent;	
+	opacity:0.6;
+}
+#molisch_bottle{
+	position:absolute;
+	left:372px;
+	top:176px;
+}
+.benedicts_bottle{
+	position:absolute;
+	left:422px;
+	top:176px;
+}
+#molisch_bottleShadow{
+	position:absolute;
+	left:369px;
+	top:302px;
+}
+#molischReagent{
+	position:absolute;
+	left:373px;
+	top:207px;
+	width:57px;
+	height:95px;
+	border-radius:20px 20px 7px 7px;
+	border-style: solid;
+    border-top: 3px ridge rgba(245, 108, 29, 1);
+	background-color:#840f1d;
+	opacity:0.6;
+}
+.bottleSolution{
+	position:absolute;
+	width:57px;
+	height:95px;
+	border-radius:20px 20px 7px 7px;
+	border-style: solid;
+    border-top: 3px ridge rgba(255, 255, 255, 1);
+	background-color:#FFFFFF;
+	opacity:0.4;
+}
+#molisch_dropperWraper{
+	position:absolute;
+	left:392px;
+	top:120px;
+	cursor:pointer;
+	opacity:1;
+}
+.dropperWraper_1{
+	position:absolute;
+	left:392px;
+	top:120px;
+	cursor:pointer;
+	opacity:1;
+}
+.dropperWraper{
+	position:absolute;
+	left:442px;
+	top:120px;
+	cursor:pointer;
+	opacity:1;
+}
+#molisch_droper{
+	position:absolute;
+}
+#molisch_bottleTxt{
+	left:371px;
+	top:249px;
+	font-size: 15px;
+}
+.bottleTxt{
+	left:422px;
+	top:249px;
+	font-size: 15px;
+}
+.bottleTxt_1{
+	left:372px;
+	top:249px;
+	font-size: 15px;
+}
+#molisch_droperSolution{
+	position:absolute;
+	left:7px;
+	top:65px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 55px 4px 0 4px;
+	border-color: #411C05 transparent transparent transparent;	
+	opacity:0.6;
+}
+.droperSolution{
+	position:absolute;
+	left:7px;
+	top:65px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 55px 4px 0 4px;
+	border-color: #ffffff transparent transparent transparent;	
+	opacity:0.6;
+}
+#molisch_bottle_1{
+	position:absolute;
+	left:472px;
+	top:176px;
+}
+#molisch_bottleShadow_1{
+	position:absolute;
+	left:469px;
+	top:302px;
+}
+#molischH2SO4{
+	position:absolute;
+	left:473px;
+	top:207px;
+	width:57px;
+	height:95px;
+	border-radius:20px 20px 7px 7px;
+	border-style: solid;
+    border-top: 3px ridge rgba(255, 255, 255, 1);
+	background-color:#FFFFFF;
+	opacity:0.4;
+}
+#molisch_dropperWraper_1{
+	position:absolute;
+	left:492px;
+	top:120px;
+	cursor:pointer;
+	opacity:1;
+}
+.dropperWraper_2{
+	position:absolute;
+	left:492px;
+	top:120px;
+	cursor:pointer;
+	opacity:1;
+}
+#molisch_droper_1{
+	position:absolute;
+}
+#molisch_droperSolution_1{
+	position:absolute;
+	left:7px;
+	top:65px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 55px 4px 0 4px;
+	border-color: #ffffff transparent transparent transparent;	
+	opacity:0.6;
+}
+#molisch_bottleTxt_1{
+	left:471px;
+	top:248px;
+	font-size: 15px;
+}
+.bottleTxt_2{
+	left:472px;
+	top:249px;
+	font-size: 15px;
+}
+#tempBG{
+	position:absolute;
+	left:100px;
+	top:31px;
+	width:230px;
+	height:211px;
+	background-color:#619564;
+	border: solid 2px #FFF;
+	display:none;
+	z-index:3;
+}
+#molischH2SO4Drop{
+	position:absolute;
+	left:364px;
+	top:-10px;
+	width:65px;
+	height:105px;
+	display:none;
+	
+}
+/* Fehlings test */
+#fehlingsA{
+	left:373px;
+	top:207px;
+	background-color:#0C97F4;
+	opacity:1;
+	border-color:#0C97F4;
+}
+#fehlings_droperSolution{
+	border-color:#0C97F4 transparent transparent transparent;
+	opacity:1;
+}
+#fehlingsB{
+	left:473px;
+	top:207px;
+}
+#hotPlate{
+	position:absolute;
+	left:120px;
+	top:255px;
+}
+#beaker{
+	position:absolute;
+	left:177px;
+	top:11px;
+}
+#beakerWater{
+	position:absolute;
+	left: 183px;
+	top: 71px;
+	height: 198px;
+	width: 211px;
+	opacity:.5;
+}
+#lightOn{
+	position:absolute;
+	left:413px;
+	top:275px;
+}
+#lightOff{
+	position:absolute;
+	left:413px;
+	top:275px;
+}
+#SwitchOn{
+	position:absolute;
+	left:464px;
+	top:271px;
+}
+#SwitchOff{
+	position:absolute;
+	left:464px;
+	top:271px;
+	cursor:pointer;
+}
+#dropArea_scene2{
+	position:absolute;
+	left:369px;
+	top:-10px;
+	height:165px;
+	width:162px;
+}
+#boilingWrap{
+	position:absolute;
+	left: 193px;
+	top: 72px;
+	height: 194px;
+	width: 192px;
+	overflow: hidden;
+	
+}
+.buble{
+	position:absolute;
+	top:186px;
+	width:6px;
+	height:6px;
+	border-radius:3px;
+	background-color:#FFF;
+	opacity:0.5;
+}
+#buble_2{
+	width:8px;
+	height:8px;
+	border-radius:4px;
+}
+#buble_3{
+	width:4px;
+	height:4px;
+	border-radius:2px;
+}
+/* Benedicts test */
+#benedictsSolu{
+	left:423px;
+	top:207px;
+	background-color:#0C97F4;
+	opacity:1;
+	border-color:#0C97F4;
+}
+#benedicts_bottleShadow{
+	position:absolute;
+	left:419px;
+	top:302px;
+}
+#benedicts_droperSolution{
+	border-color:#0C97F4 transparent transparent transparent;
+	opacity:1;
+}
+/* Benedicts test */
+#tollensSolu{
+	left:423px;
+	top:207px;
+	background-color:#FFF;
+	opacity:0.4;
+	border-color:#FFF;
+}
+.silverImg{
+	position:absolute;
+	top: 101px;
+	height: 174px;
+	width: 51px;
+	left: 0px;
+	opacity:0
+}
+#dragDisable{
+	position:absolute;
+	top: 117px;
+	height: 100px;
+	width: 284px;
+	left: 37px;
+	display:none;
+}
+#clockBody {
+	position:absolute;
+	top: 10px;
+	left: 5px;
+	display:inline;
+	z-index:3;
+}
+
+#minutLabel {
+	font-family: MRKGPEN;
+	color:#000000;
+    font-size: 11px;
+    text-align: center;
+	position:absolute;
+	top: 51px;
+	left: 15px;
+	display:inline;
+	z-index:3;
+}
+
+#needle {
+	position:absolute;
+	top: 24px;
+	left: 42px;
+	display:inline;
+	z-index:3;
+}

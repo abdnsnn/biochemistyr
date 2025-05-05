@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجدول الدوري التفاعلي | قسم الكيمياء</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/periodic-table.css">
+    <link rel="stylesheet" href="./css/ai-assistant.css">
+    <style>
+        /* Additional styles for enhanced element appearance */
+        .element {
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .element:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .element:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .element:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .element-symbol {
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .element-number {
+            font-weight: 600;
+        }
+        
+        .state-indicator {
+            position: absolute;
+            bottom: 3px;
+            left: 3px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .state-solid { background-color: #3f51b5; }
+        .state-liquid { background-color: #03a9f4; }
+        .state-gas { background-color: #e040fb; }
+        .state-artificial { background-color: #f44336; }
+    </style>
+</head>
+<body>
+   
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-flask me-2"></i>الكيمياء الحيوية
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard"><i class="fas fa-home me-1"></i>الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chemistry.html"><i class="fas fa-flask me-1"></i>المختبر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/periodic-table.html"><i class="fas fa-table me-1"></i>الجدول الدوري</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/ai-assistant.html"><i class="fas fa-robot me-1"></i>CHAT</a>
+                    </li>
+                </ul>
+                 <!-- 
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown user-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="user-avatar" id="userAvatar">ز</div>
+                            <span id="username">جاري التحميل...</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="/profile"><i class="fas fa-user me-2"></i>الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="/settings"><i class="fas fa-cog me-2"></i>الإعدادات</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 -->
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1><i class="fas fa-atom me-2"></i>الجدول الدوري التفاعلي</h1>
+            <p class="lead">استكشف العناصر الكيميائية وخصائصها بطريقة تفاعلية ومبسطة</p>
+        </div>
+    </section>
+
+    <!-- Controls Section -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                                    <input type="text" id="element-search" class="form-control" placeholder="ابحث عن عنصر..." aria-label="Element search">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="d-flex justify-content-end">
+                                    <div class="btn-group" role="group" aria-label="Element category filters">
+                                        <button type="button" class="btn btn-outline-primary active" data-filter="all">الكل</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="alkali-metal">فلزات قلوية</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="alkaline-earth">فلزات قلوية ترابية</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="transition-metal">فلزات انتقالية</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="post-transition-metal">فلزات ما بعد الانتقالية</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="metalloid">أشباه فلزات</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="nonmetal">لا فلزات</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="noble-gas">غازات نبيلة</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="lanthanide">لانثانيدات</button>
+                                        <button type="button" class="btn btn-outline-primary" data-filter="actinide">أكتينيدات</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="show-solid" checked>
+                                    <label class="form-check-label" for="show-solid">صلب</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="show-liquid" checked>
+                                    <label class="form-check-label" for="show-liquid">سائل</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="show-gas" checked>
+                                    <label class="form-check-label" for="show-gas">غاز</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="show-artificial" checked>
+                                    <label class="form-check-label" for="show-artificial">اصطناعي</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Periodic Table Section -->
+    <div class="container">
+        <div class="periodic-table-container">
+            <div id="periodic-table" class="periodic-table">
+                <!-- Elements will be dynamically generated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Element Information Modal -->
+    <div class="modal fade" id="elementModal" tabindex="-1" aria-labelledby="elementModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="elementModalLabel">معلومات العنصر</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="element-card" id="modal-element-card">
+                                <div class="element-symbol" id="modal-element-symbol"></div>
+                                <div class="element-number" id="modal-element-number"></div>
+                                <div class="element-name" id="modal-element-name"></div>
+                                <div class="element-weight" id="modal-element-weight"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h4>الخصائص الفيزيائية</h4>
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    الحالة الفيزيائية
+                                    <span id="modal-element-state"></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    الكتلة الذرية
+                                    <span id="modal-element-atomic-mass"></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    نصف القطر الذري
+                                    <span id="modal-element-radius"></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    درجة الانصهار
+                                    <span id="modal-element-melting"></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    درجة الغليان
+                                    <span id="modal-element-boiling"></span>
+                                </li>
+                            </ul>
+                            <h4>الخصائص الكيميائية</h4>
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    التكافؤ
+                                    <span id="modal-element-valence"></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    السالبية الكهربية
+                                    <span id="modal-element-electronegativity"></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    طاقة التأين
+                                    <span id="modal-element-ionization"></span>
+                                </li>
+                            </ul>
+                            <h4>البنية الإلكترونية</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    التوزيع الإلكتروني
+                                    <span id="modal-element-electron-config"></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    عدد الإلكترونات في الغلاف الخارجي
+                                    <span id="modal-element-electrons"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <h4>معلومات إضافية</h4>
+                            <p id="modal-element-description"></p>
+                            <h5>الاستخدامات الشائعة</h5>
+                            <ul id="modal-element-uses"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">الرئيسية</a>
+                    <a href="#features">المميزات</a>
+                    <a href="#about">عن الموقع</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">&copy; 2025 الكيمياء الحيوية. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a> | 
+                        <a href="#" class="text-white text-decoration-none">شروط الاستخدام</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="./js/periodic-table.js"></script>
+    <!-- Periodic Table Enhancer for modern styling and tests -->
+    <script src="./js/periodic-table-enhancer.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="./js/periodic-table-tests.js"></script>
+    <script>
+        // Adding event listener for the periodic table creation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Listen for the custom event when the table is created
+            document.addEventListener('periodicTableCreated', function() {
+                console.log('Periodic Table has been successfully created');
+                
+                // Apply custom animations to elements
+                const elements = document.querySelectorAll('.element');
+                elements.forEach((el, index) => {
+                    el.style.animationDelay = `${index * 0.02}s`;
+                    el.classList.add('element-animation');
+                });
+            });
+            
+            // Expose createPeriodicTable to global scope for testing
+            window.createPeriodicTable = createPeriodicTable;
+        });
+    </script>
+</body>
+</html>

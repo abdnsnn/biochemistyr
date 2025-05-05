@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | قسم الكيمياء</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/login.css">
+   
+    <link rel="stylesheet" href="./css/ai-assistat.css">
+  
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-flask me-2"></i>الكيمياء الحيوية
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                      
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login"><i class="fas fa-sign-in-alt me-1"></i>تسجيل الدخول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register"><i class="fas fa-user-plus me-1"></i>حساب جديد</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h2 class="login-title">تسجيل الدخول</h2>
+                </div>
+                
+                <div class="login-form">
+                    <div class="alert alert-danger text-right" id="errorAlert" role="alert"></div>
+                    
+                    <form id="loginForm">
+                        <div class="mb-4">
+                            <label for="username" class="form-label">اسم المستخدم</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="أدخل اسم المستخدم" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="password" class="form-label">كلمة المرور</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        تذكرني
+                                    </label>
+                                </div>
+                                <a href="#" class="text-decoration-none">نسيت كلمة المرور؟</a>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-sign-in-alt me-2"></i>تسجيل الدخول
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-4">
+                        <p>ليس لديك حساب؟ <a href="/register" class="signup-link">إنشاء حساب جديد</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">&copy; 2025 قسم الكيمياء التفاعلي. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a> | 
+                        <a href="#" class="text-white text-decoration-none">شروط الاستخدام</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorAlert = document.getElementById('errorAlert');
+            
+            // Validate form
+            if (!username || !password) {
+                errorAlert.textContent = 'يرجى تعبئة جميع الحقول المطلوبة';
+                errorAlert.style.display = 'block';
+                return;
+            }
+            
+            // Clear any previous errors
+            errorAlert.style.display = 'none';
+            
+            // Send login request
+            fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Store user info in localStorage if rememberMe is checked
+                    if (document.getElementById('rememberMe').checked) {
+                        localStorage.setItem('username', username);
+                    } else {
+                        localStorage.removeItem('username');
+                    }
+                    
+                    // التوجيه إلى لوحة التحكم بناءً على التوجيه المرسل من الخادم
+                    console.log('تم تسجيل الدخول بنجاح ، جاري الانتقال إلى لوحة التحكم...');
+                    
+                    // التأخير قليلاً قبل التوجيه لضمان تحديث الجلسة
+                    setTimeout(function() {
+                        if (data.redirect) {
+                            window.location.href = data.redirect;
+                        } else {
+                            window.location.href = '/dashboard';
+                        }
+                    }, 500);
+                } else {
+                    // Show error
+                    errorAlert.textContent = data.message;
+                    errorAlert.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorAlert.textContent = 'حدث خطأ أثناء محاولة تسجيل الدخول. يرجى المحاولة مرة أخرى.';
+                errorAlert.style.display = 'block';
+            });
+        });
+        
+        // Check if username is stored in localStorage
+        window.addEventListener('load', function() {
+            const savedUsername = localStorage.getItem('username');
+            if (savedUsername) {
+                document.getElementById('username').value = savedUsername;
+                document.getElementById('rememberMe').checked = true;
+            }
+        });
+    </script>
+     <script src="/js/auth.js"></script>
+</body>
+</html>

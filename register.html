@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد | الكيمياء الحيوية</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/login.css">
+   
+    <link rel="stylesheet" href="./css/ai-assistat.css">
+  
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-flask me-2"></i>الكيمياء الحيوية
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>الرئيسية</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login.html"><i class="fas fa-sign-in-alt me-1"></i>تسجيل الدخول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/register.html"><i class="fas fa-user-plus me-1"></i>حساب جديد</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h2 class="login-title">إنشاء حساب جديد</h2>
+                </div>
+                
+                <div class="login-form">
+                    <div class="alert alert-danger text-right" id="errorAlert" role="alert" style="display: none;"></div>
+                    <div class="alert alert-success text-right" id="successAlert" role="alert" style="display: none;"></div>
+                    
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="fullname" class="form-label">الاسم الكامل</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="أدخل اسمك الكامل" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">البريد الإلكتروني</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="username" class="form-label">اسم المستخدم</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="أدخل اسم المستخدم المرغوب" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">كلمة المرور</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                            </div>
+                            <div class="password-strength mt-2">
+                                <div class="progress">
+                                    <div id="passwordStrength" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small id="passwordFeedback" class="form-text"></small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="confirmPassword" class="form-label">تأكيد كلمة المرور</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="termsAgreement" required>
+                                <label class="form-check-label" for="termsAgreement">
+                                    أوافق على <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">شروط الاستخدام</a> و <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">سياسة الخصوصية</a>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus me-2"></i>إنشاء حساب
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-4">
+                        <p>لديك حساب بالفعل؟ <a href="/login.html" class="login-link">تسجيل الدخول</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Terms and Privacy Modals -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">شروط الاستخدام</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>مرحبًا بك في منصة الكيمياء الحيوية!</h5>
+                    <p>باستخدامك لهذه المنصة، فإنك توافق على الالتزام بالشروط والأحكام التالية:</p>
+                    
+                    <h6>1. استخدام المنصة</h6>
+                    <p>
+                        - يجب استخدام المنصة لأغراض تعليمية وبطريقة مسؤولة وقانونية.<br>
+                        - يمنع استخدام المنصة بشكل يضر بالآخرين أو يعطل عمل المنصة.<br>
+                        - يحظر استخدام المنصة لنشر معلومات خاطئة أو مضللة أو مخالفة للقوانين.
+                    </p>
+                    
+                    <h6>2. حسابات المستخدمين</h6>
+                    <p>
+                        - أنت مسؤول عن الحفاظ على سرية بيانات حسابك وكلمة المرور.<br>
+                        - يجب عدم مشاركة حسابك مع الآخرين أو السماح لهم باستخدامه.<br>
+                        - أنت مسؤول عن جميع الأنشطة التي تتم من خلال حسابك.
+                    </p>
+                    
+                    <h6>3. المحتوى</h6>
+                    <p>
+                        - جميع المحتويات المقدمة في المنصة محمية بحقوق الملكية الفكرية.<br>
+                        - يمنع نسخ أو توزيع المحتوى بدون إذن مسبق.<br>
+                        - المحتوى معد للاستخدام التعليمي فقط.
+                    </p>
+                    
+                    <h6>4. التعديلات</h6>
+                    <p>
+                        نحتفظ بالحق في تعديل هذه الشروط في أي وقت، وستكون التعديلات سارية المفعول فور نشرها على المنصة.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyModalLabel">سياسة الخصوصية</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>سياسة الخصوصية لمنصة الكيمياء الحيوية</h5>
+                    
+                    <h6>1. المعلومات التي نجمعها</h6>
+                    <p>
+                        نجمع المعلومات التالية عند تسجيلك في المنصة:<br>
+                        - معلومات شخصية: الاسم، البريد الإلكتروني، اسم المستخدم<br>
+                        - معلومات استخدام: كيفية استخدامك للمنصة، التجارب المنفذة، النتائج
+                    </p>
+                    
+                    <h6>2. كيفية استخدام المعلومات</h6>
+                    <p>
+                        نستخدم المعلومات التي نجمعها من أجل:<br>
+                        - توفير خدمات المنصة وتحسينها<br>
+                        - التواصل معك بشأن حسابك والتحديثات<br>
+                        - تحليل استخدام المنصة وتحسين تجربة المستخدم
+                    </p>
+                    
+                    <h6>3. حماية المعلومات</h6>
+                    <p>
+                        نلتزم بحماية معلوماتك الشخصية باستخدام إجراءات أمنية مناسبة، ونحتفظ بها فقط للمدة اللازمة لتوفير خدماتنا.
+                    </p>
+                    
+                    <h6>4. مشاركة المعلومات</h6>
+                    <p>
+                        لا نشارك معلوماتك الشخصية مع أطراف ثالثة إلا في الحالات التالية:<br>
+                        - بإذن منك<br>
+                        - للامتثال للقوانين والأنظمة<br>
+                        - لحماية حقوقنا أو أمن المستخدمين
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">&copy; 2025 الكيمياء الحيوية. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a> | 
+                        <a href="#" class="text-white text-decoration-none">شروط الاستخدام</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Password strength checker
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const strengthBar = document.getElementById('passwordStrength');
+            const feedback = document.getElementById('passwordFeedback');
+            
+            // Reset
+            strengthBar.className = 'progress-bar';
+            
+            // Check password strength
+            let strength = 0;
+            
+            // Length check
+            if (password.length >= 8) {
+                strength += 25;
+            }
+            
+            // Uppercase check
+            if (/[A-Z]/.test(password)) {
+                strength += 25;
+            }
+            
+            // Lowercase check
+            if (/[a-z]/.test(password)) {
+                strength += 25;
+            }
+            
+            // Number or special character check
+            if (/[0-9]|[^a-zA-Z0-9]/.test(password)) {
+                strength += 25;
+            }
+            
+            // Update UI
+            strengthBar.style.width = strength + '%';
+            
+            if (strength < 25) {
+                strengthBar.classList.add('bg-danger');
+                feedback.textContent = 'كلمة مرور ضعيفة جداً';
+                feedback.className = 'form-text text-danger';
+            } else if (strength < 50) {
+                strengthBar.classList.add('bg-danger');
+                feedback.textContent = 'كلمة مرور ضعيفة';
+                feedback.className = 'form-text text-danger';
+            } else if (strength < 75) {
+                strengthBar.classList.add('bg-warning');
+                feedback.textContent = 'كلمة مرور متوسطة القوة';
+                feedback.className = 'form-text text-warning';
+            } else {
+                strengthBar.classList.add('bg-success');
+                feedback.textContent = 'كلمة مرور قوية';
+                feedback.className = 'form-text text-success';
+            }
+        });
+
+        // Form submission
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const termsAgreement = document.getElementById('termsAgreement').checked;
+            
+            const errorAlert = document.getElementById('errorAlert');
+            const successAlert = document.getElementById('successAlert');
+            
+            // Reset alerts
+            errorAlert.style.display = 'none';
+            successAlert.style.display = 'none';
+            
+            // Validate form
+            if (!fullname || !email || !username || !password || !confirmPassword) {
+                errorAlert.textContent = 'يرجى تعبئة جميع الحقول المطلوبة';
+                errorAlert.style.display = 'block';
+                return;
+            }
+            
+            // Check email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorAlert.textContent = 'يرجى إدخال بريد إلكتروني صالح';
+                errorAlert.style.display = 'block';
+                return;
+            }
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                errorAlert.textContent = 'كلمات المرور غير متطابقة';
+                errorAlert.style.display = 'block';
+                return;
+            }
+            
+            // Check terms agreement
+            if (!termsAgreement) {
+                errorAlert.textContent = 'يجب الموافقة على شروط الاستخدام وسياسة الخصوصية';
+                errorAlert.style.display = 'block';
+                return;
+            }
+            
+            // Submit registration
+            fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    fullname: fullname,
+                    email: email,
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    successAlert.textContent = 'تم إنشاء الحساب بنجاح! سيتم توجيهك لتسجيل الدخول...';
+                    successAlert.style.display = 'block';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Redirect to login after a delay
+                    setTimeout(function() {
+                        window.location.href = '/login.html';
+                    }, 2000);
+                } else {
+                    // Show error
+                    errorAlert.textContent = data.message || 'حدث خطأ أثناء محاولة إنشاء الحساب';
+                    errorAlert.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorAlert.textContent = 'حدث خطأ في الاتصال بالخادم. يرجى المحاولة مرة أخرى لاحقاً.';
+                errorAlert.style.display = 'block';
+            });
+        });
+    </script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

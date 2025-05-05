@@ -1,0 +1,473 @@
+:root {
+    --primary-color: #264653;
+    --secondary-color: #2a9d8f;
+    --accent-color: #e9c46a;
+    --light-color: #2b0505;
+    --dark-color: #212529;
+    
+    /* Element category colors - more vibrant and professional */
+    --alkali-metal-color: #ff5252;
+    --alkaline-earth-color: #ff9800;
+    --transition-metal-color: #ffc107;
+    --post-transition-color: #8bc34a;
+    --metalloid-color: #00bcd4;
+    --nonmetal-color: #29b6f6;
+    --noble-gas-color: #7e57c2;
+    --lanthanide-color: #ec407a;
+    --actinide-color: #f06292;
+    --unknown-color: #9e9e9e;
+    
+    /* State indicators */
+    --solid-state: #3f51b5;
+    --liquid-state: #03a9f4;
+    --gas-state: #e040fb;
+    --artificial-state: #f44336;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #f5f5f5;
+    color: var(--dark-color);
+}
+
+.navbar-custom {
+    background-color: var(--primary-color);
+}
+
+.navbar-custom .navbar-brand, 
+.navbar-custom .nav-link {
+    color: white;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.navbar-custom .nav-link.active {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.9)), url('../images/chemistry-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Periodic Table Styles */
+.periodic-table-container {
+    margin: 20px auto;
+    max-width: 1300px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, minmax(65px, 1fr));
+    grid-gap: 5px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.element {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 8px;
+    color: var(--dark-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: var(--post-transition-colo);
+}
+
+.element:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.element:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+
+    
+    background-color: var(--post-transition-colo);
+}
+
+.element.hidden {
+    display: none;
+}
+
+.empty-cell {
+    aspect-ratio: 1;
+}
+
+.separator {
+    grid-column: 1 / -1;
+    height: 20px;
+}
+
+/* Element Content Styling */
+.element-number {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.element-symbol {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-top: 5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: var(--post-transition-colo);
+}
+
+.element-name {
+    font-size: 0.7rem;
+    margin-top: 3px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.element-weight {
+    font-size: 0.65rem;
+    opacity: 0.9;
+    margin-top: 3px;
+}
+
+.state-indicator {
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.state-solid {
+    background-color: var(--solid-state);
+}
+
+.state-liquid {
+    background-color: var(--liquid-state);
+}
+
+.state-gas {
+    background-color: var(--gas-state);
+}
+
+.state-artificial {
+    background-color: var(--artificial-state);
+}
+
+/* Category Colors - with gradients for better visual appeal */
+.alkali-metal {
+    background: linear-gradient(135deg, var(--alkali-metal-color), #ff7b7b);
+    color: #fff;
+}
+
+.alkaline-earth {
+    background: linear-gradient(135deg, var(--alkaline-earth-color), #ffb74d);
+    color: #fff;
+}
+
+.transition-metal {
+    background: linear-gradient(135deg, var(--transition-metal-color), #ffe082);
+}
+
+.post-transition {
+    background: linear-gradient(135deg, var(--post-transition-color), #aed581);
+}
+
+.metalloid {
+    background: linear-gradient(135deg, var(--metalloid-color), #4dd0e1);
+}
+
+.nonmetal {
+    background: linear-gradient(135deg, var(--nonmetal-color), #81d4fa);
+}
+
+.noble-gas {
+    background: linear-gradient(135deg, var(--noble-gas-color), #b39ddb);
+    color: #fff;
+}
+
+.lanthanide {
+    background: linear-gradient(135deg, var(--lanthanide-color), #f48fb1);
+    color: #fff;
+}
+
+.actinide {
+    background: linear-gradient(135deg, var(--actinide-color), #f8bbd0);
+    color: #fff;
+}
+
+.unknown {
+    background: linear-gradient(135deg, var(--unknown-color), #bdbdbd);
+}
+
+/* Filter buttons */
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.filter-btn {
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 20px;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn.active {
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.filter-btn[data-category="all"] {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.filter-btn[data-category="alkali-metal"] {
+    background-color: var(--alkali-metal-color);
+    color: white;
+}
+
+.filter-btn[data-category="alkaline-earth"] {
+    background-color: var(--alkaline-earth-color);
+    color: white;
+}
+
+.filter-btn[data-category="transition-metal"] {
+    background-color: var(--transition-metal-color);
+    color: white;
+}
+
+.filter-btn[data-category="metalloid"] {
+    background-color: var(--metalloid-color);
+    color: white;
+}
+
+.filter-btn[data-category="nonmetal"] {
+    background-color: var(--nonmetal-color);
+    color: white;
+}
+
+.filter-btn[data-category="noble-gas"] {
+    background-color: var(--noble-gas-color);
+    color: white;
+}
+
+.filter-btn[data-category="lanthanide"] {
+    background-color: var(--lanthanide-color);
+    color: white;
+}
+
+.filter-btn[data-category="actinide"] {
+    background-color: var(--actinide-color);
+    color: white;
+}
+
+/* Search bar */
+.search-bar {
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    font-family: 'Cairo', sans-serif;
+    text-align: right;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(26, 35, 126, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .periodic-table {
+        grid-template-columns: repeat(18, minmax(50px, 1fr));
+    }
+    
+    .element-symbol {
+        font-size: 1.2rem;
+    }
+    
+    .element-name, .element-weight {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .periodic-table {
+        grid-template-columns: repeat(18, minmax(40px, 1fr));
+    }
+    
+    .element-symbol {
+        font-size: 1rem;
+    }
+    
+    .element-name, .element-weight, .element-number {
+        font-size: 0.5rem;
+    }
+    
+    .state-indicator {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .periodic-table-container {
+        margin: 10px -15px;
+        width: calc(100% + 30px);
+    }
+}
+
+/* Category legend */
+.category-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.legend-text {
+    font-size: 0.85rem;
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom: none;
+    padding: 16px 20px;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.element-card {
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--dark-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+#modal-element-symbol {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#modal-element-number {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#modal-element-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 12px 16px;
+    transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.list-group-item span {
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem 0;
+}
+
+.footer a {
+    color: var(--accent-color);
+}

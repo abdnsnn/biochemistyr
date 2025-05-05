@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسم الكيمياء | تعلم تفاعلي</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #264653;
+            --secondary-color: #1a2d3f;
+            --accent-color: #e9c46a;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+        }
+        
+        .navbar-custom {
+            background-color: var(--primary-color);
+        }
+        
+        .navbar-custom .navbar-brand, 
+        .navbar-custom .nav-link {
+            color: white;
+        }
+        
+        .navbar-custom .nav-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(38, 70, 83, 0.8), rgba(38, 70, 83, 0.9)), url('./images/chemistry-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .lab-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .iframeContainer {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .iframeContainer iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .resource-list li {
+            margin-bottom: 0.75rem;
+        }
+        .btn.disabled{
+        
+            background-color: var(  --secondary-color);
+        }
+        .periodic-element {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            margin: 5px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .periodic-element:hover {
+            transform: scale(1.1);
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .element-symbol {
+            font-size: 1.5rem;
+        }
+        
+        .element-number {
+            font-size: 0.8rem;
+        }
+        
+        /* AI Evaluation Styles */
+        .ai-evaluation {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid var(--secondary-color);
+            display: none;
+        }
+        
+        .ai-evaluation-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        
+        .ai-icon {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .ai-evaluation-header h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .ai-evaluation-description {
+            margin-bottom: 20px;
+            color: #495057;
+        }
+        
+        .ai-evaluation-results h4,
+        .ai-scientific-explanation h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            padding-right: 10px;
+            border-right: 3px solid var(--accent-color);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .result-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .sample-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+        
+        .result-data {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .result-conclusion {
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .result-conclusion.positive {
+            background-color: rgba(25, 135, 84, 0.1);
+            color: #198754;
+        }
+        
+        .result-conclusion.negative {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .result-explanation {
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+        
+        .ai-scientific-explanation {
+            background-color: rgba(233, 196, 106, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            color: #495057;
+        }
+        #ai-evaluation-panel {
+           display: none;
+        }
+        #m{
+            background-color: #495057;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2rem 0;
+            }
+            
+            .feature-icon {
+                font-size: 2rem;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+   <link rel="stylesheet" href="./css/ai-assistant.css">
+   
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-flask me-2"></i>الكيمياء الحيوية
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard"><i class="fas fa-home me-1"></i>الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/chemistry.html"><i class="fas fa-flask me-1"></i>المختبر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/periodic-table.html"><i class="fas fa-table me-1"></i>الجدول الدوري</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/ai-assistant.html"><i class="fas fa-robot me-1"></i>CHAT</a>
+                    </li>
+                </ul>
+                 <!-- 
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown user-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="user-avatar" id="userAvatar">ز</div>
+                            <span id="username">جاري التحميل...</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="/profile"><i class="fas fa-user me-2"></i>الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="/settings"><i class="fas fa-cog me-2"></i>الإعدادات</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 -->
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1><i class="fas fa-vial me-2"></i>المختبرات التفاعلية</h1>
+            <p class="lead"> تجربة التحليل النوعي للكربوهيدرات</p>
+        </div>
+    </section>
+ 
+
+        <!-- Lab Simulations Section -->
+        <section id="lab-simulations" class="mb-5">
+           
+            
+            
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="m-0 d-flex align-items-center">
+                                <i class="fas fa-flask me-2"></i>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="iframeContainer mb-4">
+                                <iframe src="c.html" allowfullscreen="true" title="تجربة التحليل النوعي للكربوهيدرات" id="chemistry-iframe"></iframe>
+                            </div>
+                            
+                            <!-- AI Evaluation Panel -->
+                            <div id="ai-evaluation-panel" class="ai-evaluation">
+                                <!-- Content will be dynamically populated by the AI evaluation script -->
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <button id="showEvaluationBtn" class="btn btn-primary" onclick="triggerAIEvaluation(true)" >
+                                    <i class="fas fa-robot me-1"></i> عرض التقييم الذكي
+                                </button>
+                                <button id="saveExperimentBtn" class="btn btn-success ms-2" onclick="saveExperiment()">
+                                    <i class="fas fa-save me-1"></i> حفظ التجربة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Navigation Shortcuts -->
+        <h3 class="mt-5 mb-4"><i class="fas fa-compass me-2"></i>روابط سريعة</h3>
+        
+        <div class="row mb-5">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 navigation-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-flask fa-3x mb-3" style="color: var(--secondary-color)"></i>
+                        <h4>مختبر الكيمياء</h4>
+                        <p>قم بإجراء تجارب كيميائية تفاعلية في بيئة آمنة وتعليمية</p>
+                        <a href="/chemistry.html" class="btn btn-primary">الذهاب إلى المختبر</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 navigation-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-table fa-3x mb-3" style="color: var(--warning-color)"></i>
+                        <h4>الجدول الدوري</h4>
+                        <p>استكشف الجدول الدوري التفاعلي للعناصر مع معلومات تفصيلية</p>
+                        <a href="/periodic-table.html" class="btn btn-warning">عرض الجدول الدوري</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-robot me-2"></i>CHAT</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="lab-icon mb-3">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5 class="card-title">مساعد الكيمياء الحيوية</h5>
+                        <p class="card-text">استخدم مساعدنا الذكي المدعوم بالذكاء الاصطناعي للحصول على إجابات لأسئلتك عن الكيمياء الحيوية</p>
+                        <a href="ai-assistant.html" class="btn btn-primary mt-2" id="aiAssistantBtn">استخدم CHAT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">الروابط الكيميائية</div>
+                        <div class="card-body text-center">
+                            <div class="lab-icon mb-3">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h5 class="card-title">فهم أنواع الروابط الكيميائية</h5>
+                            <p class="card-text">استكشف الروابط الأيونية والتساهمية والفلزية وخصائصها</p>
+                            <button class="btn btn-primary mt-2" disabled id="m">قريباً</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">المعايرة</div>
+                        <div class="card-body text-center">
+                            <div class="lab-icon mb-3">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h5 class="card-title">تجارب المعايرة الحمضية القاعدية</h5>
+                            <p class="card-text">تعلم كيفية إجراء المعايرة وحساب التركيزات</p>
+                            <button class="btn btn-primary mt-2" disabled id="m">قريباً</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">الكيمياء العضوية</div>
+                        <div class="card-body text-center">
+                            <div class="lab-icon mb-3">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h5 class="card-title">التفاعلات العضوية الأساسية</h5>
+                            <p class="card-text">استكشف تفاعلات الإضافة والاستبدال والحذف</p>
+                            <button class="btn btn-primary mt-2" disabled id="m">قريباً</button>
+                        </div>
+                    </div>
+                </div>
+                
+              
+            </div>
+        </section>
+
+    <!-- Footer -->
+   <!-- Footer -->
+   <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">الرئيسية</a>
+                <a href="#features">المميزات</a>
+                <a href="#about">عن الموقع</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0">&copy; 2025 الكيمياء الحيوية. جميع الحقوق محفوظة.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">
+                    <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a> | 
+                    <a href="#" class="text-white text-decoration-none">شروط الاستخدام</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Auth Module -->
+    <script src="./js/auth.js"></script>
+    <script type="text/javascript" src="./js/ai_evaluation.js"></script>
+    
+    <!-- مساعد الذكاء الاصطناعي -->
+    <script>
+        // نقل معلومات تسجيل الدخول عند الانتقال إلى صفحة CHAT
+        document.addEventListener('DOMContentLoaded', function() {
+            const aiAssistantBtn = document.getElementById('aiAssistantBtn');
+            if (aiAssistantBtn) {
+                aiAssistantBtn.addEventListener('click', function(e) {
+                    // التحقق من وجود data.success والتأكد من نقلها عند الانتقال
+                    if (window.Auth && typeof Auth.isAuthenticated === 'function') {
+                        if (Auth.isAuthenticated()) {
+                            console.log('المستخدم مسجل دخول، جارٍ نقل حالة تسجيل الدخول إلى صفحة CHAT');
+                            localStorage.setItem('authStatus', 'success');
+                        } else {
+                            console.log('المستخدم غير مسجل دخول، سيتم توجيهه لتسجيل الدخول في صفحة CHAT');
+                        }
+                    } else {
+                        // نتحقق من localStorage لمعرفة ما إذا كان هناك رمز توثيق
+                        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+                        if (authToken) {
+                            console.log('تم العثور على رمز التوثيق، جارٍ تعيين حالة التوثيق للاستخدام في صفحة CHAT');
+                            localStorage.setItem('authStatus', 'success');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- AI Evaluation Script -->
+    <script>
+     function triggerAIEvaluation(showPanel) {
+    const iframe = document.getElementById('chemistry-iframe');
+
+    if (!iframe || !iframe.contentWindow) return;
+
+    const tryCallAIEval = () => {
+        const iframeWin = iframe.contentWindow;
+        if (typeof iframeWin.showAIEvaluation === 'function') {
+            if (showPanel) {
+                const panel = document.getElementById('ai-evaluation-panel');
+                if (panel) panel.style.display = 'block';
+            }
+            iframeWin.showAIEvaluation();
+        } else {
+            console.log("🔁 Function not ready, retrying...");
+            setTimeout(tryCallAIEval, 500); // Retry until function appears
+        }
+    };
+
+    tryCallAIEval();
+}
+
+window.addEventListener('load', () => {
+    const panel = document.getElementById('ai-evaluation-panel');
+    if (panel) panel.style.display = 'none';
+
+    const iframe = document.getElementById('chemistry-iframe');
+
+    function checkInferenceVisibility() {
+        try {
+            const iframeDoc = iframe.contentWindow?.document;
+            const inference = iframeDoc?.getElementById('Inference');
+
+            if (inference &&
+                window.getComputedStyle(inference).display !== 'none' &&
+                window.getComputedStyle(inference).visibility !== 'hidden') {
+                    
+                console.log("✅ Inference is visible!");
+                const btn = document.getElementById('showEvaluationBtn');
+                if (btn) btn.style.display = 'inline-block';
+
+                if (panel) panel.style.display = 'none';
+            }
+        } catch (e) {
+            console.warn("🚫 Can't access iframe content:", e);
+        }
+    }
+
+    const setupObserver = () => {
+        try {
+            const iframeDoc = iframe.contentWindow.document;
+            const observer = new MutationObserver(checkInferenceVisibility);
+
+            observer.observe(iframeDoc.body, {
+                attributes: true,
+                childList: true,
+                subtree: true
+            });
+
+            checkInferenceVisibility();
+        } catch (e) {
+            console.log("👀 Fallback to interval check:", e);
+            setInterval(checkInferenceVisibility, 1000);
+        }
+    };
+
+    // Delay to ensure iframe is loaded
+    setTimeout(() => {
+        if (iframe.contentWindow?.document?.readyState === 'complete') {
+            setupObserver();
+        } else {
+            iframe.onload = () => {
+                setupObserver();
+            };
+        }
+
+        // Initial eval trigger
+        setTimeout(() => {
+            triggerAIEvaluation(false);
+        }, 1000);
+    }, 2000);
+});
+
+    </script>
+   
+    <!-- JavaScript Libraries -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // For future implementation of interactive periodic table functionality
+       
+    </script>
+    <script src="/js/auth.js"></script>
+    <script>
+        function saveExperiment() {
+            const evaluationPanel = document.getElementById('ai-evaluation-panel');
+            if (!evaluationPanel || evaluationPanel.innerText.trim() === '') {
+                // Si no hay evaluación, mostrar mensaje para solicitar la evaluación primero
+                alert('يرجى عرض التقييم الذكي أولاً قبل حفظ التجربة');
+                return;
+            }
+            
+            // Extraer la puntuación del panel de evaluación
+            let score = 0;
+            const scoreMatch = evaluationPanel.innerText.match(/التقييم النهائي: (\d+)\/100/);
+            if (scoreMatch && scoreMatch[1]) {
+                score = parseInt(scoreMatch[1]);
+            }
+            
+            // Preparar datos del experimento
+            const experimentData = {
+                title: 'تجربة التحليل النوعي للكربوهيدرات',
+                category: 'الكيمياء العضوية',
+                score: score,
+                notes: evaluationPanel.innerText,
+                date: new Date().toISOString()
+            };
+            
+            // Verificar si el usuario está conectado
+            fetch('/api/user-profile')
+                .then(response => {
+                    if (response.status === 401) {
+                        alert('يرجى تسجيل الدخول لحفظ التجربة');
+                        window.location.href = '/login.html';
+                        return null;
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data) return;
+                    
+                    // Usuario conectado, guardar el experimento
+                    fetch('/api/save-experiment', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(experimentData)
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success) {
+                            // Mostrar modal de éxito
+                            showSuccessModal();
+                            
+                            // También guardar localmente para usuarios sin conexión
+                            saveExperimentLocally(experimentData);
+                        } else {
+                            // Error al guardar en el servidor, intentar guardar localmente
+                            alert('حدث خطأ أثناء حفظ التجربة على الخادم. سيتم حفظها محلياً.');
+                            saveExperimentLocally(experimentData);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error saving experiment:', error);
+                        // Error de conexión, guardar localmente
+                        alert('حدث خطأ في الاتصال. سيتم حفظ التجربة محلياً.');
+                        saveExperimentLocally(experimentData);
+                    });
+                });
+        }
+        
+        function saveExperimentLocally(experimentData) {
+            // Obtener experimentos guardados anteriormente
+            let savedExperiments = JSON.parse(localStorage.getItem('chemistry_experiments') || '[]');
+            
+            // Agregar nuevo experimento
+            savedExperiments.push({
+                ...experimentData,
+                id: 'local_' + Date.now(),  // ID local para identificar el experimento
+                savedLocally: true
+            });
+            
+            // Guardar en localStorage
+            localStorage.setItem('chemistry_experiments', JSON.stringify(savedExperiments));
+            
+            // Mostrar modal de éxito
+            showSuccessModal();
+        }
+        
+        function showSuccessModal() {
+            // Crear modal si no existe
+            let modal = document.getElementById('successModal');
+            
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'successModal';
+                modal.className = 'modal fade';
+                modal.setAttribute('tabindex', '-1');
+                modal.setAttribute('aria-hidden', 'true');
+                
+                modal.innerHTML = `
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success text-white">
+                                <h5 class="modal-title">تم الحفظ بنجاح</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>تم حفظ نتائج التجربة بنجاح!</p>
+                                <p>يمكنك الآن مشاهدة تقدمك وتفاصيل التجربة في صفحة لوحة التحكم.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                                <a href="/dashboard.html" class="btn btn-primary">الذهاب إلى لوحة التحكم</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+            }
+            
+            // Mostrar el modal
+            const successModal = new bootstrap.Modal(modal);
+            successModal.show();
+        }
+    </script>
+   
+</body>
+</html>

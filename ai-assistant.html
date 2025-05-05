@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT | الكيمياء الحيوية</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Cairo for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/ai-assistant.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-flask me-2"></i>الكيمياء الحيوية
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard"><i class="fas fa-home me-1"></i>الرئيسية</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chemistry.html"><i class="fas fa-flask me-1"></i>المختبر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/periodic-table.html"><i class="fas fa-table me-1"></i>الجدول الدوري</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/ai-assistant.html"><i class="fas fa-robot me-1"></i>CHAT</a>
+                    </li>
+                </ul>
+                 <!-- 
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown user-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="user-avatar" id="userAvatar">ز</div>
+                            <span id="username">جاري التحميل...</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="/profile"><i class="fas fa-user me-2"></i>الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="/settings"><i class="fas fa-cog me-2"></i>الإعدادات</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h1 class="hero-title">CHAT <span>للكيمياء الحيوية</span></h1>
+                    <p class="hero-subtitle">استفد من أحدث تقنيات الذكاء الاصطناعي للحصول على إجابات دقيقة حول الكيمياء الحيوية، البروتينات، الإنزيمات والتفاعلات الخلوية</p>
+                    <a href="#chat-section" class="btn btn-primary btn-lg hero-btn">ابدأ المحادثة الآن <i class="fas fa-arrow-left ms-2"></i></a>
+                </div>
+                <div class="col-md-5">
+                    <div class="hero-image">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103478.png" alt="مساعد الذكاء الاصطناعي" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ai-assistant-container">
+        <!-- Section Title -->
+        <div class="section-title" id="features-section">
+            <h2>مميزات CHAT</h2>
+            <p>اكتشف القدرات المتقدمة التي يقدمها مساعد الكيمياء الحيوية CHAT</p>
+        </div>
+        
+        <!-- AI Features -->
+        <div class="ai-features-list">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h4>معلومات دقيقة</h4>
+                <p>يقدم المساعد معلومات دقيقة وحديثة عن الكيمياء الحيوية وتفاعلاتها المختلفة استناداً إلى أحدث الأبحاث العلمية</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <h4>فهم عميق للجزيئات الحيوية</h4>
+                <p>فهم متقدم للبروتينات والأحماض النووية والكربوهيدرات والدهون ووظائفها في الأنظمة الحيوية المختلفة</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h4>شرح التفاعلات المعقدة</h4>
+                <p>قدرة على تبسيط وشرح التفاعلات البيوكيميائية المعقدة بطريقة سهلة الفهم مع توضيح الآليات الجزيئية</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h4>دعم تعليمي</h4>
+                <p>مساعدة في فهم المفاهيم الصعبة وحل المسائل المتعلقة بالكيمياء الحيوية وتقديم شروحات تفاعلية</p>
+            </div>
+        </div>
+        
+        <!-- Chat Header -->
+        <div class="chat-header" id="chat-section">
+            <h2><i class="fas fa-robot me-2"></i>مساعد الكيمياء الحيوية CHAT</h2>
+            <p>مرحباً بك في مساعد الكيمياء الحيوية CHAT. يمكنك طرح أسئلة عن الكيمياء الحيوية وستحصل على إجابات دقيقة ومفصلة.</p>
+        </div>
+        
+        <!-- AI Chat Section -->
+        <div class="chat-section">
+            <!-- Chat Avatar and Status -->
+            <div class="chat-assistant-info">
+                <div class="assistant-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="assistant-status">
+                    <span class="status-indicator online"></span>
+                    <span class="status-text">متصل الآن</span>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- رسائل المحادثة ستظهر هنا تلقائياً عند التحميل أو بعد تسجيل الدخول -->
+            </div>
+            
+            <div id="loading-indicator">
+                <div class="spinner"></div>
+                <p>جاري التفكير...</p>
+            </div>
+            
+            <div class="quick-questions-title">أسئلة مقترحة</div>
+            <div class="quick-questions-container">
+                <span class="quick-question" onclick="askQuickQuestion(this)">ما هي الإنزيمات؟</span>
+                <span class="quick-question" onclick="askQuickQuestion(this)">كيف تعمل دورة كريبس؟</span>
+                <span class="quick-question" onclick="askQuickQuestion(this)">ما هو الفرق بين DNA و RNA؟</span>
+                <span class="quick-question" onclick="askQuickQuestion(this)">كيف تتكون الروابط الببتيدية؟</span>
+                <span class="quick-question" onclick="askQuickQuestion(this)">ما هي وظائف البروتينات في الجسم؟</span>
+                <span class="quick-question" onclick="askQuickQuestion(this)">شرح عملية بناء البروتين</span>
+                <span class="quick-question" onclick="askQuickQuestion(this)">ما هي الأحماض الأمينية الأساسية؟</span>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب سؤالك عن الكيمياء الحيوية هنا...">
+                <button class="send-button" id="sendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">الرئيسية</a>
+                    <a href="#features">المميزات</a>
+                    <a href="#about">عن الموقع</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">&copy; 2025 الكيمياء الحيوية. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a> | 
+                        <a href="#" class="text-white text-decoration-none">شروط الاستخدام</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AI Assistant JavaScript -->
+    <script src="./js/ai-chat.js"></script>
+
+</body>
+</html>
+        

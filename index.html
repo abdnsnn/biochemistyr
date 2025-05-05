@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكيمياء الحيوية | المنصة التفاعلية لتعلم الكيمياء</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="./css/index.css">
+   <link rel="stylesheet" href="./css/ai-assistant.css">
+ 
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-flask"></i>
+                <span>الكيمياء الحيوية</span>
+            </a>
+            
+            <nav>
+                <a href="#"><i class="fas fa-home me-1  active"></i> الرئيسية</a>
+                <a href="#features"><i class="fas fa-star me-1"></i> المميزات</a>
+                <a href="#about"><i class="fas fa-info-circle me-1"></i> عن المنصة</a>
+                <a href="#contact"><i class="fas fa-envelope me-1"></i> اتصل بنا</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="/login" id="loginLink" class="btn-outline btn-sm"><i class="fas fa-sign-in-alt me-1"></i> تسجيل الدخول</a>
+                <a href="/dashboard" id="dashboardLink" class="btn-outline btn-sm" style="display: none;"><i class="fas fa-tachometer-alt me-1"></i> لوحة التحكم</a>
+                <a href="#" id="logoutLink" class="btn-sm logout-button" style="display: none;"><i class="fas fa-sign-out-alt me-1"></i> تسجيل الخروج</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>الكيمياء الحيوية</h1>
+            <p>منصة تفاعلية لتعلم الكيمياء بطريقة مبتكرة وممتعة باستخدام الذكاء الاصطناعي</p>
+            <div class="hero-btns">
+                <a href="/register" class="hero-btn btn"><i class="fas fa-user-plus me-2"></i>انضم إلينا مجاناً</a>
+                <a href="#features" class="btn btn-outline"><i class="fas fa-info-circle me-2"></i>المزيد عنا</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">طالب</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">تجربة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">معدل الرضا</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <h2>مميزات المنصة</h2>
+        
+        <!-- الميزة الجديدة: الشات الذكي -->
+        <div class="feature-item" style=" border-right: 4px solid ">
+            <i class="feature-icon" >
+            </i>
+
+            <div class="features">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="feature-title">تجارب تفاعلية</h3>
+                        <p>تجارب كيميائية محاكاة بشكل رقمي لتجربة المفاهيم الكيميائية عملياً وبشكل آمن</p>
+                        <a href="/login" class="feature-link">جرب الآن <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="feature-title">شات ذكي</h3>
+                        <p>تحدث مع مساعد ذكي يجيب على أسئلتك عن الكيمياء ويساعدك في حل المسائل باستخدام الذكاء الاصطناعي</p>
+                        <a href="/login" class="feature-link">جرب الآن <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3 class="feature-title">جدول دوري تفاعلي</h3>
+                        <p>استكشف جدول دوري متكامل يقدم معلومات مفصلة عن كل عنصر وخصائصه الكيميائية والفيزيائية</p>
+                        <a href="/login" class="feature-link">استكشف <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title">تقييم الذكاء الاصطناعي</h3>
+                        <p>احصل على تقييم دقيق لتجاربك المخبرية من خلال تحليل متقدم باستخدام الذكاء الاصطناعي</p>
+                        <a href="/login" class="feature-link">اطلع على نتائجك <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <h2>عن المنصة</h2>
+        <p>
+            منصة "الكيمياء الحيوية" هي مشروع تعليمي مبتكر يهدف إلى تبسيط علم الكيمياء وجعله أكثر متعة وتفاعلية للطلاب والباحثين والمهتمين بالعلوم. نستخدم أحدث التقنيات بما فيها الذكاء الاصطناعي لتوفير تجربة تعليمية فريدة.
+        </p>
+        <p>
+            تتميز المنصة بتوفير تجارب افتراضية تحاكي التجارب المخبرية الحقيقية مع إمكانية تحليل النتائج وتقييمها من خلال خوارزميات ذكية، مما يتيح للمستخدم فهماً أعمق للمفاهيم العلمية وتطبيقاتها العملية.
+        </p>
+    </section>
+    
+    <section class="contact" id="contact">
+        <h2>تواصل معنا</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <input type="text" id="name" required placeholder=" ">
+                <label for="name">الاسم</label>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" required placeholder=" ">
+                <label for="email">البريد الإلكتروني</label>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" placeholder=" ">
+                <label for="phone">رقم الهاتف (اختياري)</label>
+            </div>
+            <div class="form-group">
+                <textarea id="message" rows="4" required placeholder=" "></textarea>
+                <label for="message">رسالتك</label>
+            </div>
+            <button type="submit">إرسال الرسالة <i class="fas fa-paper-plane mr-1"></i></button>
+            <div class="form-success">تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.</div>
+        </form>
+    </section>
+    
+   <div>
+    <footer style="max-width: 100%;">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">الرئيسية</a>
+                <a href="#features">المميزات</a>
+                <a href="#about">عن الموقع</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 الكيمياء الحيوية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+   </div>
+    
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // تحقق من صحة المدخلات
+        let valid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+        
+        if (name.value.trim() === '') {
+            valid = false;
+            name.style.borderColor = '#ff3547';
+        }
+        
+        if (email.value.trim() === '' || !email.value.includes('@')) {
+            valid = false;
+            email.style.borderColor = '#ff3547';
+        }
+        
+        if (message.value.trim() === '') {
+            valid = false;
+            message.style.borderColor = '#ff3547';
+        }
+        
+        if (valid) {
+            // في الحالة الحقيقية، هنا سيتم إرسال البيانات إلى الخادم
+            // لأغراض العرض فقط، سنعرض رسالة النجاح
+            const success = document.querySelector('.form-success');
+            success.style.display = 'block';
+            
+            // إعادة تعيين النموذج
+            this.reset();
+            
+            // إخفاء رسالة النجاح بعد 3 ثوان
+            setTimeout(() => {
+                success.style.display = 'none';
+            }, 3000);
+        }
+    });
+    
+    // إعادة تعيين حالة الحقل عند الكتابة فيه
+    const inputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            this.style.borderColor = '';
+        });
+    });
+
+    // تأثير السكرول الناعم عند النقر على روابط القائمة
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+    <!-- كود جافاسكريبت للتحقق من حالة تسجيل الدخول وتحديث العناصر في شريط التنقل -->
+    <script>
+        // فحص حالة تسجيل الدخول عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+
+            // إضافة مستمع حدث لزر تسجيل الخروج
+            document.getElementById('logoutLink').addEventListener('click', function(event) {
+                event.preventDefault();
+                logout();
+            });
+        });
+
+        // دالة للتحقق من حالة تسجيل الدخول
+        function checkLoginStatus() {
+            // إرسال طلب GET إلى API للتحقق من حالة تسجيل الدخول
+            fetch('/api/user/profile')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // المستخدم مسجل الدخول
+                        showUserElements();
+                    } else {
+                        // المستخدم غير مسجل الدخول
+                        showGuestElements();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // في حالة حدوث خطأ، افترض أن المستخدم غير مسجل الدخول
+                    showGuestElements();
+                });
+        }
+
+        // دالة لإظهار عناصر المستخدم المسجل
+        function showUserElements() {
+            // إخفاء عناصر الزائر
+            document.querySelectorAll('.guest-only').forEach(element => {
+                element.style.display = 'none';
+            });
+
+            // إظهار عناصر المستخدم المسجل
+            document.querySelectorAll('.user-only').forEach(element => {
+                element.style.display = 'block';
+            });
+        }
+
+        // دالة لإظهار عناصر الزائر
+        function showGuestElements() {
+            // إخفاء عناصر المستخدم المسجل
+            document.querySelectorAll('.user-only').forEach(element => {
+                element.style.display = 'none';
+            });
+
+            // إظهار عناصر الزائر
+            document.querySelectorAll('.guest-only').forEach(element => {
+                element.style.display = 'block';
+            });
+        }
+
+        // دالة لتسجيل الخروج
+        function logout() {
+            fetch('/api/logout', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // تحديث العناصر في شريط التنقل
+                    showGuestElements();
+                    // إعادة تحميل الصفحة للتأكد من حصول المستخدم على النسخة الصحيحة
+                    window.location.reload();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>
